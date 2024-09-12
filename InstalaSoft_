@@ -1,0 +1,139 @@
+import os
+import webbrowser
+import pyautogui as pa
+import customtkinter as ctk
+from tkinter import messagebox
+
+# FUNÇÕES =================================================================================================================================
+def infos():
+    messagebox.showinfo("INFORMAÇÕES", """                       
+Esta aplicação irá auxiliar na instalação dos programas básicos para seu sistema Windows 10 ou 11.\n\n
+→ BAIXAR WINGET: esse botão serve para realizar odownload do gerenciador de pacotes no windows. Ele é necessário para a instalação dos programas nesse aplicativo. Clique no botão caso seu Pc não tenha o Winget instalado.\n\n
+→ INSTALAR PROGRAMAS: esse botão serve para instalar os programas. Para isso basta marcar a caixa que fica a lado do nome do programa. Você pode escolher mais de um programa ou até todos os programas de uma só vez. Após marcar o(s) programa(s), clique em INSTALAR PROGRAMAS. Será instalado a versão mais recente de cada programa selecionado.\n\n
+→ LIMPAR CAMPOS: esse botão apaga os campos que já estão selecionados.""")
+
+def winget_install():
+    messagebox.showinfo('INFORMAÇÃO', 'Quando o download do WINGET terminar, instale-o e volte a utilizar este programa\n\nObrigado!')
+    os.system('start https://aka.ms/getwingetpreview')
+    
+def executar_itens_selecionados():
+    selecionados = [opcao_var1.get(), opcao_var2.get(), opcao_var3.get(), opcao_var4.get(), opcao_var5.get(), opcao_var6.get(), opcao_var7.get(), opcao_var8.get(), opcao_var9.get(), opcao_var10.get(), opcao_var11.get(), opcao_var12.get(), opcao_var13.get(), opcao_var14.get(), opcao_var15.get(), opcao_var16.get(), opcao_var17.get()]
+    if any(selecionados):
+        if selecionados[0]:
+            os.system('winget install AnyDeskSoftwareGmbH.AnyDesk --accept-package-agreements') # Anydesk
+        if selecionados[1]:
+            os.system('winget install XPDP273C0XHQH2 --accept-package-agreements') # Adobe
+        if selecionados[2]:
+            os.system('winget install XPFCG5NRKXQPKT --accept-package-agreements') # Foxit
+        if selecionados[3]:
+            os.system('winget install Google.Chrome --accept-package-agreements') # Google
+        if selecionados[4]:
+            os.system('winget install Oracle.JavaRuntimeEnvironment --accept-package-agreements') # Java
+        if selecionados[5]:
+            os.system('winget install Skillbrains.Lightshot --accept-package-agreements') # Lightshot
+        if selecionados[6]:
+            os.system('winget install Mozilla.Firefox --accept-package-agreements') # Mozilla
+        if selecionados[7]:
+            os.system('winget install VideoLAN.VLC --accept-package-agreements') # VLC
+        if selecionados[8]:
+            os.system('winget install RARLab.WinRAR --accept-package-agreements') # Winrar
+        if selecionados[9]:
+            os.system('winget install 7zip.7zip --accept-package-agreements') # 7 Zip
+        if selecionados[10]: 
+            os.system('winget install DominikReichl.KeePass --accept-package-agreements') # KeePass
+        if selecionados[11]:
+            os.system('winget install OBSProject.OBSStudio --accept-package-agreements') # OBS
+        if selecionados[12]:
+            os.system('winget install Microsoft.PowerBI --accept-package-agreements') # PowerBI
+        if selecionados[13]:
+            os.system('winget install TeamViewer.TeamViewer --accept-package-agreements') # TeamViewer
+        if selecionados[14]:
+            os.system('winget install WhatsApp.WhatsApp --accept-package-agreements') # Whatsapp
+        if selecionados[15]:
+            os.system('winget install Kingsoft.WPSOffice --accept-package-agreements') # WPSOffice
+        if selecionados[16]:
+            os.system('winget install 9NCBCSZSJRSB --accept-package-agreements') # Spotify
+        
+        messagebox.showinfo("INFORMAÇÃO", "Procedimento realizado com sucesso.")
+        limpar_campos()
+    else:
+        messagebox.showinfo("INFORMAÇÃO", "Nenhuma opção foi selecionada.\n\nPor favor, selecione pelo menos uma opção para realizar a instalação.")
+
+def limpar_campos():
+        opcao_var1.set(0), opcao_var2.set(0), opcao_var3.set(0), opcao_var4.set(0), opcao_var5.set(0), opcao_var6.set(0), opcao_var7.set(0), opcao_var8.set(0), opcao_var9.set(0), opcao_var10.set(0), opcao_var11.set(0), opcao_var12.set(0), opcao_var13.set(0), opcao_var14.set(0), opcao_var15.set(0), opcao_var16.set(0), opcao_var17.set(0)
+
+# JANELA ==================================================================================================================================
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
+janela = ctk.CTk()
+janela.title("Instala Soft")
+janela.geometry("450x550+1+1")
+janela.iconbitmap("logo-instalasoft-05-uniconlabs.ico")
+janela.resizable(False, False)
+
+opcao_var1 = ctk.IntVar()
+opcao_var2 = ctk.IntVar()
+opcao_var3 = ctk.IntVar()
+opcao_var4 = ctk.IntVar()
+opcao_var5 = ctk.IntVar()
+opcao_var6 = ctk.IntVar()
+opcao_var7 = ctk.IntVar()
+opcao_var8 = ctk.IntVar()
+opcao_var9 = ctk.IntVar()
+opcao_var10 = ctk.IntVar()
+opcao_var11 = ctk.IntVar()
+opcao_var12 = ctk.IntVar()
+opcao_var13 = ctk.IntVar()
+opcao_var14 = ctk.IntVar()
+opcao_var15 = ctk.IntVar()
+opcao_var16 = ctk.IntVar()
+opcao_var17 = ctk.IntVar()
+
+# Cabeçalho ===============================================================================================================================
+texto_cabecalho = ctk.CTkLabel(janela, text="Instalador de Programas - Básico", font=("Copperplate Gothic Bold", 21, "underline"))
+texto_cabecalho.pack(pady=25)
+
+# Rotulos e Caixas ========================================================================================================================
+scrollabel_frame = ctk.CTkScrollableFrame(janela, width=200, height=210, fg_color="white")
+scrollabel_frame.pack(pady=10)
+
+opcao1_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Anydesk", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var1)
+opcao1_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao2_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Adobe Reader", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var2)
+opcao2_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao3_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Foxit Reader PDF", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var3)
+opcao3_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao4_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Google Chrome", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var4)
+opcao4_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao5_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Java", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var5)
+opcao5_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao6_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="LighShot", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var6)
+opcao6_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao7_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Mozilla Firefox", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var7)
+opcao7_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao8_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="VLC", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var8)
+opcao8_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao9_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Winrar", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var9)
+opcao9_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao10_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="7 Zip", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var10)
+opcao10_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao11_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="KeePass", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var11)
+opcao11_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao12_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="OBS Studio", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var12)
+opcao12_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao13_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Power BI", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var13)
+opcao13_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao14_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Team Viewer", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var14)
+opcao14_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao15_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="WhatsApp", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var15)
+opcao15_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao16_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="WPS Office", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var16)
+opcao16_checkbox.pack(padx=1, pady=1, anchor="w")
+opcao17_checkbox = ctk.CTkCheckBox(scrollabel_frame, text="Spotify", font=("Candara", 13, "bold"), text_color="black", border_color="black", variable=opcao_var17)
+opcao17_checkbox.pack(padx=1, pady=1, anchor="w")
+
+# Botões ==================================================================================================================================
+infos_button = ctk.CTkButton(janela, text="Informações", font=("Arial", 13, "bold"), cursor="hand2", fg_color="gray", command=infos).pack(pady=5)
+winget_button = ctk.CTkButton(janela, text="Baixar Winget", font=("Arial", 13, "bold"), cursor="hand2", fg_color="#B8860B", command=winget_install).pack(pady=5)
+executar_button = ctk.CTkButton(janela, text="Instalar Programas", font=("Arial", 13, "bold"), cursor="hand2",  fg_color="green", command=executar_itens_selecionados).pack(pady=5)
+limpar_button = ctk.CTkButton(janela, text="Limpar Campos", font=("Arial", 13, "bold"), cursor="hand2", fg_color="red", command=limpar_campos).pack(pady=5)
