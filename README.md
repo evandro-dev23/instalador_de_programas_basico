@@ -16,8 +16,6 @@ O primeiro botão que é o de Informações vai exibir em uma única janela expl
 
  ![image](https://github.com/user-attachments/assets/fae4801d-f67d-4c4b-8d53-7349fdf7c2ca)
 
-![image](https://github.com/user-attachments/assets/5e8cdb22-ad3e-4756-a1bc-0a8e8372826d)
-
    Após clicar no botão Baixar Winget, o download será iniciado e quando terminar, basta executar o arquivo. Após feito o procedimento, você pode continuar a usar o programa.
 
 ![image](https://github.com/user-attachments/assets/4983ba2d-96db-4f08-90ac-9b2d674f2865)
