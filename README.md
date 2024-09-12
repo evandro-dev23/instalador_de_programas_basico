@@ -4,7 +4,6 @@
 
    Com o tempo que era gasto realizando essas instalações manualmente, posso utilizar o tempo que é economizado para focar em outras atividades mais estratégicas.
 
-
 PROGRAMA INSTALA SOFT
 
  ![image](https://github.com/user-attachments/assets/cda5a35c-9b73-49a6-9f97-5ede20bf159b)
